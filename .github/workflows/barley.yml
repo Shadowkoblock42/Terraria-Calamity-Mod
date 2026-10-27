@@ -1,0 +1,31 @@
+name: "UMBRA"
+run-name: "MIRE"
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  Sapphire:
+    concurrency:
+      group: "petal"
+      cancel-in-progress: false
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Delta.outputs.page_url }}
+    steps:
+      - name: "Knot"
+        uses: actions/checkout@v7
+      - name: "Sitka"
+        uses: actions/configure-pages@v5
+      - name: "JASMINE"
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: "MOSS"
+        id: Delta
+        uses: actions/deploy-pages@v4
